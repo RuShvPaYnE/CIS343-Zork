@@ -1,15 +1,17 @@
 from observable import Observable
-from observer import observer
+from observer import Observer
 from random import randint
+from npc import NPC
+from observable import Observable
 
-class Home(Observer):
-    def __init__(self,NPCNumber)):
+class Home(Observer,Observable):
+    def __init__(self,NPCNumber):
         super().__init__()
         self.NPCNumber = NPCNumber
         self.NPCArray = []
         for i in range(0,NPCNumber):
             self.NPCArray.append(NPC(randint(0,4)))
-            self.NPCArray[x].add_observer(self)
+            self.NPCArray[i].add_observer(self)
 
     def add_NPC(self,NPC):
         self.NPCArray.append(NPC)

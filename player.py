@@ -1,4 +1,6 @@
 from random import randint
+from observer import Observer
+from weapon import Weapon
 
 class Player(Observer):
 
@@ -12,12 +14,6 @@ class Player(Observer):
 
 	def get_health(self):
 		return self.health
-
-	def get_locationx(self):
-		return self.locationx
-
-	def get_locationy(self):
-		return self.locationy
 
 	def get_inventory(self):
 		return self.inventory
