@@ -25,8 +25,8 @@ class Home(Observer,Observable):
     def get_NPCNumber(self):
         total = 0
         for i in range(self.NPCNumber):
-            if self.NPCArray[i].get_NPCT != 0:
-                num +=1
+            if self.NPCArray[i].get_npcT != 0:
+                num = num +1
         return num
 
     def update(self,NPC):

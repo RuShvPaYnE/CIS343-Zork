@@ -12,6 +12,7 @@ class Neighborhood(Observer):
             self.neighborhood.append([])
             temp = Home(randint(1,10))
             self.neighborhood[r].append(temp)
+
             #for c in range(self.size):
             #    self.neighborhood[r][c].add_observer(self)
     def get_neighborhood(self):

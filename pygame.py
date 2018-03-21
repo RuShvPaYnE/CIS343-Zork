@@ -25,4 +25,7 @@ if __name__ == "__main__":
     print("there are", len(hood), "houses that need to be cleared")
     houseNum = int(input("Which house would you like to hit first? "))
     int(houseNum)
-    hood[houseNum].get_NPCNumber()
+    hood[houseNum-1--][0].get_NPC()
+    while(houseNum != -1):
+        houseNum = int(input("Which house would you like to hit first? "))
+        hood[houseNum-1][0].get_NPC()
