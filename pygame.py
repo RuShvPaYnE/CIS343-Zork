@@ -5,7 +5,8 @@ from npc import NPC
 from weapon import Weapon
 from player import Player
 from neighborhood import Neighborhood
-
+import sys
+from random import randint
 
 
 if __name__ == "__main__":
@@ -16,6 +17,7 @@ if __name__ == "__main__":
 
     n = Neighborhood()
     hood = n.get_neighborhood()
+    print(hood)
 
     hero = Player()
     candyBucket = hero.get_inventory()
@@ -25,7 +27,31 @@ if __name__ == "__main__":
     print("there are", len(hood), "houses that need to be cleared")
     houseNum = int(input("Which house would you like to hit first? "))
     int(houseNum)
-    hood[houseNum-1--][0].get_NPC()
+    houseNum += -1
+    hood[houseNum].get_NPC()
     while(houseNum != -1):
-        houseNum = int(input("Which house would you like to hit first? "))
-        hood[houseNum-1][0].get_NPC()
+        option = input("Do you want to 'attack', 'leave','inventory','sugar coma'? ")
+
+        if option == "attack":
+            npc = hood[houseNum].getNPC()
+            hood[houseNum].get_NPC()
+            print()
+            print()
+            for x in range(len(candyBucket)):
+                print(x ,candyBucket[x].getName())
+            wpnOption = input("which weapon?")
+            int(wpnOption)
+            wpnNum = candyBucket[int(wpnOption)].getWeapon()
+            for n in range(len(npc)):
+                npc[n].hit(randint(10,20)*candyBucket[int(wpnOption)].wear(),wpnNum)
+            HPlost = 0
+            for n in range(len(npc)):
+                hero.set_health(-npc[n].attack())
+                HPlost += npc[n].attack()
+            print("you lost ",HPlost, "health. \n remaining health: ", hero.get_health())
+
+            if hero.get_health() < 1:
+                print("dead motherfucker")
+                break
+        if option == "sugar coma":
+            sys.exit()

@@ -22,19 +22,19 @@ class Weapon(Observable):
         self.uses = 2
 
       if weapon == 2:
-        self.name = "ChocolateBars"
-        self.weapon = weapon
-        self.uses = 4
+          self.name = "ChocolateBars"
+          self.weapon = weapon
+          self.uses = 4
 
       if weapon == 3:
-        self.name = "NerdBOMB"
-        self.weapon = weapon
-        self.uses = 1
+          self.name = "NerdBOMB"
+          self.weapon = weapon
+          self.uses = 1
 
       if weapon == 4:
-        self.name = "IceCream"
-        self.weapon = weapon
-        self.uses = 1
+          self.name = "IceCream"
+          self.weapon = weapon
+          self.uses = 1
 
 
 #https://codereview.stackexchange.com/questions/138085/text-based-rpg-using-oop

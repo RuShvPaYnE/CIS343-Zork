@@ -9,9 +9,9 @@ class Neighborhood(Observer):
         self.neighborhood = []
         self.size = randint(2,5)
         for r in range(self.size):
-            self.neighborhood.append([])
+            #self.neighborhood.append([])
             temp = Home(randint(1,10))
-            self.neighborhood[r].append(temp)
+            self.neighborhood.append(temp)
 
             #for c in range(self.size):
             #    self.neighborhood[r][c].add_observer(self)

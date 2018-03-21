@@ -30,5 +30,16 @@ class Home(Observer,Observable):
         return num
 
     def update(self,NPC):
-        tempNum = self.NPCArray.indec(NPC)
+        tempNum = self.NPCArray.index(NPC)
+        print(self.Array[tempNum].get_name(), "has been slain!")
+        self.NPCArray.remove(NPC)
+        self.NPCArray.insert(tempNum, Monster(0))
+        self.NPCArray[tempNum].add_observer(self)
+        if all( x.get_npcT() is 0 for x in self.NPCArray):
+            print("THE MONSTERS ARE DEAD!!! savage!")
+            super().update(self)
         print(self.NPCArray)
+
+
+    def getNPC(self):
+        return self.NPCArray
