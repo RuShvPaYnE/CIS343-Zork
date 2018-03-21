@@ -19,3 +19,10 @@ if __name__ == "__main__":
 
     hero = Player()
     candyBucket = hero.get_inventory()
+    #spacing
+    print()
+    print()
+    print("there are", len(hood), "houses that need to be cleared")
+    houseNum = int(input("Which house would you like to hit first? "))
+    int(houseNum)
+    hood[houseNum].get_NPCNumber()

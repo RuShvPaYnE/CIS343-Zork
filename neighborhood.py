@@ -10,9 +10,10 @@ class Neighborhood(Observer):
         self.size = randint(2,5)
         for r in range(self.size):
             self.neighborhood.append([])
-            for c in range(self.size):
-                self.neighborhood[r].append(Home(randint(1,10)))
-                self.neighborhood[r][c].add_observer(self)
+            temp = Home(randint(1,10))
+            self.neighborhood[r].append(temp)
+            #for c in range(self.size):
+            #    self.neighborhood[r][c].add_observer(self)
     def get_neighborhood(self):
         return self.neighborhood
     def update(self, house):

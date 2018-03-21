@@ -9,29 +9,29 @@ class NPC(Observable):
 		super().__init__()
 		if randNum == 0:
 			self.name = "Person"
-			self.hitpoints = 100
+			self.health = 100
 			self.npcT = randNum
 		if randNum == 1:
 			self.name = "Zombie"
-			self.hitpoints = randint(50,100)
+			self.health = randint(50,100)
 			self.npcT = randNum
 		if randNum == 2:
 			self.name = "Vampire"
-			self.hitpoints = randint(100, 200)
+			self.health = randint(100, 200)
 			self.npcT = randNum
 		if randNum == 3:
 			self.name = "Ghoul"
-			self.hitpoints = randint(40,80)
+			self.health = randint(40,80)
 			self.npcT = randNum
 		if randNum == 4:
 			self.name = "Werewolf"
-			self.hitpoints = 200
+			self.health = 200
 			self.npcT = randNum
 	#Getter methods
 	def get_name(self):
 		return self.name
-	def get_hitpoints(self):
-		return self.hitpoints
+	def get_health(self):
+		return self.health
 	def get_npcT(self):
 		return self.npcT
 
@@ -53,29 +53,29 @@ class NPC(Observable):
 	def hit(self, atk, weapon):
 		if self.npcT == 1:
 			if weapon == 1:
-				self.hitpoints -= atk*2
+				self.health -= atk*2
 			else:
-				self.hitpoints -= atk
-			if self.hitpoints < 1:
+				self.health -= atk
+			if self.health < 1:
 				self.update(self)
 		if self.npcT == 2:
 			if weapon == 2:
 				pass
 			else:
-				self.hitpoints -= atk
-			if self.hitpoints < 1:
+				self.health -= atk
+			if self.health < 1:
 				self.update(self)
 		if self.npcT == 3:
 			if weapon == 3:
-				self.hitpoints -= atk*5
+				self.health -= atk*5
 			else:
-				self.hitpoints -= atk
-			if self.hitpoints < 1:
+				self.health -= atk
+			if self.health < 1:
 				self.update(self)
 		if self.npcT == 4:
 			if weapon == 1 or weapon == 2:
 				pass
 			else:
-				self.hitpoints -= atk
-			if self.hitpoints < 1:
+				self.health -= atk
+			if self.health < 1:
 				self.update(self)
