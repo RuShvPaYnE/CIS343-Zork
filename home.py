@@ -19,7 +19,7 @@ class Home(Observer):
         if self.NPCNumber == 0:
             print("Home has no one inside")
         for i in self.NPCArray:
-            print(i.get_name(), "Health:", i.get_health())
+            print(i.get_name(), "Health:", round(i.get_health()))
 
     def get_NPCNumber(self):
         total = 0

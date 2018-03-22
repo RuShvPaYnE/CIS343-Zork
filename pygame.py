@@ -7,6 +7,7 @@ from player import Player
 from neighborhood import Neighborhood
 import sys
 from random import randint
+import math
 
 
 if __name__ == "__main__":
@@ -17,7 +18,6 @@ if __name__ == "__main__":
 
     n = Neighborhood()
     hood = n.get_neighborhood()
-    print(hood)
 
     hero = Player()
     candyBucket = hero.get_inventory()
@@ -27,9 +27,13 @@ if __name__ == "__main__":
     print()
     print("there are", len(hood), "houses that need to be cleared")
     houseNum = int(input("Which house would you like to hit? "))
-    int(houseNum)
-    houseNum += -1
-    hood[houseNum].get_NPC()
+    if houseNum  <= len(hood):
+        int(houseNum)
+        houseNum += -1
+        hood[houseNum].get_NPC()
+    else:
+        print("You picked something that doesn't exsist. You're a dummy. \n \n GAME OVER")
+        sys.exit()
 
 
     while(houseNum != -1):
@@ -53,12 +57,13 @@ if __name__ == "__main__":
                 hero.set_health(-npc[n].attack())
                 HPlost += npc[n].attack()
             print("you lost ",HPlost, "health. \n remaining health: ", hero.get_health())
-            print("you have", candyBucket[x].getUses(), "uses left with that weapon")
+           
             
 
             if hero.get_health() < 1:
                 print("dude you died")
                 break
+          
             
 #How to end the game
         if option == "sugar coma":
@@ -70,6 +75,7 @@ if __name__ == "__main__":
             int(houseNum)
             houseNum += -1
             hood[houseNum].get_NPC()
+        
 
 #Check your inventory
         if option == "inventory":
