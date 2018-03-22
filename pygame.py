@@ -21,6 +21,7 @@ if __name__ == "__main__":
 
     hero = Player()
     candyBucket = hero.get_inventory()
+    
     #spacing
     print()
     print()
@@ -34,7 +35,7 @@ if __name__ == "__main__":
     while(houseNum != -1):
 
         option = input("Do you want to 'attack', 'leave','inventory','sugar coma'? ")
-
+#Attack Command Options
         if option == "attack":
             npc = hood[houseNum].getNPC()
             hood[houseNum].get_NPC()
@@ -52,14 +53,17 @@ if __name__ == "__main__":
                 hero.set_health(-npc[n].attack())
                 HPlost += npc[n].attack()
             print("you lost ",HPlost, "health. \n remaining health: ", hero.get_health())
+            print("you have", candyBucket[x].getUses(), "uses left with that weapon")
+            
 
             if hero.get_health() < 1:
                 print("dude you died")
                 break
+            
+#How to end the game
         if option == "sugar coma":
             sys.exit()
-
-
+#Leave the house      
         if option == "leave":
             print("there are", len(hood), "houses that need to be cleared")
             houseNum = int(input("Which house would you like to hit? "))
@@ -67,7 +71,10 @@ if __name__ == "__main__":
             houseNum += -1
             hood[houseNum].get_NPC()
 
-
+#Check your inventory
         if option == "inventory":
             for x in range(len(candyBucket)):
                 print(x ,candyBucket[x].getName(),candyBucket[x].getUses(), "uses left")
+
+        else:
+            print("Please pick a command from the list.")
