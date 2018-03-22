@@ -25,11 +25,14 @@ if __name__ == "__main__":
     print()
     print()
     print("there are", len(hood), "houses that need to be cleared")
-    houseNum = int(input("Which house would you like to hit first? "))
+    houseNum = int(input("Which house would you like to hit? "))
     int(houseNum)
     houseNum += -1
     hood[houseNum].get_NPC()
+
+
     while(houseNum != -1):
+
         option = input("Do you want to 'attack', 'leave','inventory','sugar coma'? ")
 
         if option == "attack":
@@ -38,12 +41,12 @@ if __name__ == "__main__":
             print()
             print()
             for x in range(len(candyBucket)):
-                print(x ,candyBucket[x].getName())
+                print(x ,candyBucket[x].getName(),candyBucket[x].getUses(), "uses left")
             wpnOption = input("which weapon?")
             int(wpnOption)
             wpnNum = candyBucket[int(wpnOption)].getWeapon()
             for n in range(len(npc)):
-                npc[n].hit(randint(10,20)*candyBucket[int(wpnOption)].wear(),wpnNum)
+                npc[n].hit(randint(10,20)* candyBucket[int(wpnOption)].wear(),wpnNum)
             HPlost = 0
             for n in range(len(npc)):
                 hero.set_health(-npc[n].attack())
@@ -51,7 +54,20 @@ if __name__ == "__main__":
             print("you lost ",HPlost, "health. \n remaining health: ", hero.get_health())
 
             if hero.get_health() < 1:
-                print("dead motherfucker")
+                print("dude you died")
                 break
         if option == "sugar coma":
             sys.exit()
+
+
+        if option == "leave":
+            print("there are", len(hood), "houses that need to be cleared")
+            houseNum = int(input("Which house would you like to hit? "))
+            int(houseNum)
+            houseNum += -1
+            hood[houseNum].get_NPC()
+
+
+        if option == "inventory":
+            for x in range(len(candyBucket)):
+                print(x ,candyBucket[x].getName(),candyBucket[x].getUses(), "uses left")

@@ -43,25 +43,28 @@ class Weapon(Observable):
 
   def wear(self):
       if self.weapon == 0:
-        self.uses -=1
+        self.uses = self.uses - 1
         if self.uses == 0:
             self.update(self)
       return randint(100,175)/100.0
 
       if self.weapon == 1:
-        self.uses -=1
+        self.uses = self.uses - 1
         if self.uses == 0:
             self.update(self)
       return randint(200,250)/100.0
 
       if self.weapon == 2:
-        self.uses -=1
+        self.uses = self.uses - 1
         if self.uses == 0:
             self.update(self)
       return randint(350,501)/100.0
 
       if self.weapon == 3:
-        return 1
+          self.uses = self.uses - 1
+          if self.uses == 0:
+              self.update(self)
+          return 1
 
       #if self.weapon == 4 and monster == "Ira"
         #self.uses -=1
