@@ -38,7 +38,7 @@ if __name__ == "__main__":
 
     while(houseNum != -1):
 
-        option = input("Do you want to 'attack', 'leave','inventory','sugar coma'? ")
+        option = input("Do you want to 'attack', 'leave','inventory','sugar coma', 'check'? ")
 #Attack Command Options
         if option == "attack":
             npc = hood[houseNum].getNPC()
@@ -46,12 +46,12 @@ if __name__ == "__main__":
             print()
             print()
             for x in range(len(candyBucket)):
-                print(x ,candyBucket[x].getName(),candyBucket[x].getUses(), "uses left")
+                print(x ,candyBucket[x].getName(),candyBucket[x].wear(), "uses left")
             wpnOption = input("which weapon?")
             int(wpnOption)
             wpnNum = candyBucket[int(wpnOption)].getWeapon()
             for n in range(len(npc)):
-                npc[n].hit(randint(10,20)* candyBucket[int(wpnOption)].wear(),wpnNum)
+                npc[n].hit(randint(10,20)* candyBucket[int(wpnOption)].getUses(), wpnNum)
             HPlost = 0
             for n in range(len(npc)):
                 hero.set_health(-npc[n].attack())
