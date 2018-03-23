@@ -5,11 +5,11 @@ from weapon import Weapon
 class Player(Observer):
 
 	def __init__ (self):
-		self.health = 100000#randint(100,125)
+		self.health = randint(100,125)
 		self.inventory = []
 		self.inventory.append(Weapon(0))
-		for x in range (9):
-			self.inventory.append(Weapon(randint(1,4)))
+		for x in range (3):
+			self.inventory.append(Weapon(x))
 			self.inventory[x+1].add_observer(self)
 
 	def get_health(self):

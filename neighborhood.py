@@ -19,3 +19,6 @@ class Neighborhood(Observer):
         return self.neighborhood
     def update(self, house):
         print("Yay no more monsters!")
+
+    def remove(self,home):
+        self.neighborhood.remove(home)
