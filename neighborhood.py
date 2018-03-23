@@ -4,6 +4,7 @@ from random import randint
 from home import Home
 from npc import NPC
 
+#### Creates the Neighborhood with a size of between 2 and 5 Houses ####
 class Neighborhood(Observer):
     def __init__(self):
         self.neighborhood = []
@@ -15,10 +16,12 @@ class Neighborhood(Observer):
 
             #for c in range(self.size):
             #    self.neighborhood[r][c].add_observer(self)
+#### Returns the Neighborhood ####
     def get_neighborhood(self):
         return self.neighborhood
+#### Updates the house when there are no more monsters ####    
     def update(self, house):
         print("Yay no more monsters!")
-
+#### Removes the house from the neighborhood ####
     def remove(self,home):
         self.neighborhood.remove(home)
